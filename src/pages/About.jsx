@@ -1,5 +1,6 @@
 import Reveal from "../components/Reveal";
 import { motion } from "framer-motion";
+
 import {
   FiAward,
   FiClock,

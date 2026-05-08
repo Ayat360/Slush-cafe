@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 
+
 export default function LightningTrails() {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-[5]">
