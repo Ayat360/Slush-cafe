@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CartContext } from "../context/cartContext";
+import { CartContext } from "../context/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function CheckoutModal({ isCheckout, setIsCheckout }) {
