@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Loader from "./components/Loader";
+import IntroGate from "./components/IntroGate";
 import Navbar from "./components/Navbar";
 import CartPanel from "./components/CartPanel";
 import CursorGlow from "./components/CursorGlow";
@@ -18,33 +17,39 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2500);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      {/* 🔥 LOADER */}
-      <AnimatePresence>
-        {loading && <Loader />}
-      </AnimatePresence>
+      {/* 🔥 CINEMA INTRO */}
+      <IntroGate loading={loading} />
 
-      {/* 🔥 MAIN APP */}
+      {/* 🔥 MAIN WEBSITE */}
       {!loading && (
         <BrowserRouter>
+
+          {/* GLOBAL COMPONENTS */}
+          <CursorGlow />
           <Navbar />
           <CartPanel />
-          <CursorGlow />
 
-<Routes>
-  <Route path="/" element={<Home />} />
-  <Route path="/menu" element={<Menu />} />
-  <Route path="/about" element={<About />} />
-  <Route path="/gallery" element={<Gallery />} />
-  <Route path="/contact" element={<Contact />} />
-</Routes>
+          {/* PAGES */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
 
-<Footer />
+          {/* FOOTER */}
+          <Footer />
+
         </BrowserRouter>
       )}
     </>
