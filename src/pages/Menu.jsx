@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useContext } from "react";
-import { CartContext } from "../context/cartContext";
+import { CartContext } from "../context/CartContext";
 import { motion } from "framer-motion";
 
 const categories = ["All", "Rice", "Stew", "Pasta", "Sides"];
