@@ -12,6 +12,9 @@ import Menu from "./pages/Menu";
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
+import Checkout from "./pages/Checkout";
+import Payment from "./pages/Payment";
+import Success from "./pages/Success";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -45,6 +48,9 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/payment" element={<Payment />} />
+            <Route path="/success" element={<Success />} />
           </Routes>
 
           {/* FOOTER */}
