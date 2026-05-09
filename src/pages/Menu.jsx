@@ -80,7 +80,131 @@ export default function Menu() {
       : menuItems.filter((item) => item.category === active);
 
   return (
-    <div className="pt-28 pb-16 px-6 max-w-7xl mx-auto">
+    <div className="relative pt-28 pb-16 px-6 max-w-7xl mx-auto overflow-hidden">
+
+  {/* 🔥 PREMIUM BACKGROUND IMAGE */}
+  <div
+    className="absolute inset-0 opacity-10 bg-cover bg-center scale-110"
+    style={{
+      backgroundImage:
+        "url('https://images.unsplash.com/photo-1504674900247-0877df9cc836')"
+    }}
+  ></div>
+
+  {/* 🔥 DARK OVERLAY */}
+  <div className="absolute inset-0 bg-black/90"></div>
+
+  {/* 🔥 GOLD GRADIENT */}
+  <div className="absolute inset-0 bg-linear-to-br from-yellow-500/10 via-transparent to-transparent"className="absolute inset-0 bg-gradient-to-br from-yellow-500/10 via-transparent to-transparent"></div>
+
+  {/* 🔥 MOVING CURVED LIGHTNING ORBS */}
+  <motion.div
+    animate={{
+      x: [0, 120, -80, 0],
+      y: [0, -100, 80, 0],
+      rotate: [0, 180, 360]
+    }}
+    transition={{
+      duration: 18,
+      repeat: Infinity,
+      ease: "linear"
+    }}
+    className="absolute top-20 left-10 w-72 h-72 rounded-full border border-yellow-500/20 blur-3xl"
+    style={{
+      background:
+        "radial-gradient(circle, rgba(234,179,8,0.25), transparent)"
+    }}
+  />
+
+  <motion.div
+    animate={{
+      x: [0, -140, 100, 0],
+      y: [0, 120, -100, 0],
+      rotate: [360, 180, 0]
+    }}
+    transition={{
+      duration: 22,
+      repeat: Infinity,
+      ease: "linear"
+    }}
+    className="absolute bottom-10 right-10 w-96 h-96 rounded-full border border-yellow-500/10 blur-3xl"
+    style={{
+      background:
+        "radial-gradient(circle, rgba(234,179,8,0.15), transparent)"
+    }}
+  />
+
+  {/* 🔥 CHASING CURVED LIGHTNING */}
+  <svg
+    className="absolute inset-0 w-full h-full opacity-30"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <motion.path
+      d="M200,300 C400,100 600,500 900,300"
+      stroke="#eab308"
+      strokeWidth="3"
+      fill="transparent"
+      strokeLinecap="round"
+      filter="url(#glow)"
+      animate={{
+        pathLength: [0, 1, 0]
+      }}
+      transition={{
+        duration: 5,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
+    />
+
+    <motion.path
+      d="M100,500 C500,200 700,700 1200,400"
+      stroke="#facc15"
+      strokeWidth="2"
+      fill="transparent"
+      strokeLinecap="round"
+      filter="url(#glow)"
+      animate={{
+        pathLength: [0, 1, 0]
+      }}
+      transition={{
+        duration: 6,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: 1
+      }}
+    />
+
+    <motion.path
+      d="M300,100 C700,400 900,50 1400,300"
+      stroke="#fde047"
+      strokeWidth="2"
+      fill="transparent"
+      strokeLinecap="round"
+      filter="url(#glow)"
+      animate={{
+        pathLength: [0, 1, 0]
+      }}
+      transition={{
+        duration: 7,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: 2
+      }}
+    />
+
+    <defs>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="4" result="coloredBlur" />
+        <feMerge>
+          <feMergeNode in="coloredBlur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+  </svg>
+
+  {/* 🔥 CONTENT */}
+  <div className="relative z-10">
 
       {/* TITLE */}
       <div className="text-center mb-14">
@@ -162,6 +286,10 @@ export default function Menu() {
 
 </div>
       </div>
+
+      {/* 🔥 CONTENT WRAPPER END */}
+      </div>
+
     </div>
   );
 }
